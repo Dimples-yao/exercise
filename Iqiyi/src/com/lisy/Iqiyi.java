@@ -1,5 +1,6 @@
 package com.lisy;
 
+import java.util.Scanner;
 import java.util.Stack;
 
 /**
@@ -63,17 +64,30 @@ public class Iqiyi {
     * 输出例子1:
     * 509
     */
-    public int getNum(int sum){
-        int result=0;
-        String sum_str = String.valueOf(sum);
-        String[] result_str = new String[sum_str.length()];
-        for(int i=0;i<result_str.length;i++){
-            result_str[i] = "0";
-        }
-        for (int i=0;i<sum_str.length();i++){
-            for (int j=0;j<10;j++){
-                result_str[i] = String.valueOf(j);
+    public long getNum(long sum){
+        long result = 0,l = 0,r = sum;
+        if (sum==0){
+            return result;
+        }else {
+            while (l<r){
+                long mid = (l+r)/2;
+                if (sum == getResult(mid)){
+                    result = mid;
+                    return result;
+                }else if (sum > getResult(mid)){
+                    l = mid;
+                }else {
+                    r = mid;
+                }
             }
+        }
+        return -1;
+    }
+    public static long getResult(long x){
+        long result=0;
+        while (x!=0){
+            result+=x;
+            x = x/10;
         }
         return result;
     }
