@@ -623,6 +623,23 @@ public class Solution {
         return tag_l&&tag_r;
     }
 
+    /**
+     * 反转链表
+     * 时间限制：1秒 空间限制：32768K 热度指数：195876
+     * 输入一个链表，反转链表后，输出链表的所有元素。
+     */
+    public ListNode ReverseList(ListNode head) {
+        ListNode pPre= null;
+        ListNode pNext= null;
+        while (head != null){
+            pNext = head.next;
+            head.next = pPre;
+            pPre = head;
+            head = pNext;
+        }
+        return pPre;
+    }
+
     /*
     * 二叉树中和为某一值的路径
     * 时间限制：1秒 空间限制：32768K
