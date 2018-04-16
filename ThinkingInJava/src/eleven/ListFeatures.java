@@ -1,6 +1,5 @@
-package Eleven;
+package eleven;
 
-import java.util.List;
 import java.util.Random;
 
 public class ListFeatures {
