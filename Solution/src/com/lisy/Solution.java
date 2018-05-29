@@ -645,9 +645,42 @@ public class Solution {
     * 时间限制：1秒 空间限制：32768K
     * 输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
     */
-    public ArrayList<ArrayList<Integer>> FindPath(TreeNode root,int target) {
 
-        return null;
+    //用户存储所有路径
+    ArrayList<ArrayList<Integer>> lists = new ArrayList<>();
+    //用于遍历
+    ArrayList<Integer> list = new ArrayList<>();
+    //存储当前节点值的和
+    int num = 0;
+
+    public ArrayList<ArrayList<Integer>> FindPath(TreeNode root,int target) {
+        if (root == null){
+            return lists;
+        }
+        //num存储遍历到当前节点的时, 所有节点的和是多少
+        num+=root.val;
+        //存储当前遍历的路径
+        list.add(root.val);
+        //如果此时num刚好和目标值相等, 并且左右子树均为空. 则加入lists
+        if (num==target&&root.left==null&&root.right==null){
+            ArrayList<Integer> path = new ArrayList<>();
+            for (int i:list) {
+                path.add(i);
+            }
+            lists.add(path);
+        }
+        //如果左子树不空
+        if (num<target&&root.left!=null){
+            FindPath(root.left,target);
+        }
+        //如果右子树不空
+        if (num<target&&root.right!=null){
+            FindPath(root.right,target);
+        }
+        //如果进行到该处, 则说明该路径不正确, 即返回到上一个节点.
+        num-=root.val;
+        list.remove(list.size()-1);
+        return lists;
     }
 
 }

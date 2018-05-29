@@ -1,5 +1,7 @@
 # Newcoder
-> 牛客刷题
+> 刷题
 
-### Iqiyi   [爱奇艺2018秋季校招算法工程师（第三场）](https://www.nowcoder.com/test/8246879/summary)
 ### Solution    [在线编程->剑指offer](https://www.nowcoder.com/ta/coding-interviews )
+### WrittenTest 笔试题
+### ThinkingInJava Java编程思想第四版,测试代码
+### yiibai 易佰教程中学习代码
