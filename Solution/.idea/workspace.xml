@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6c396ddf-c2ca-4823-a251-94bc23310d11" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/lisy/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lisy/Solution.java" afterDir="false" />
-    </list>
+    <list default="true" id="6c396ddf-c2ca-4823-a251-94bc23310d11" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +15,8 @@
       <file leaf-file-name="Solution.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/lisy/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="645" column="76" lean-forward="true" selection-start-line="645" selection-start-column="6" selection-end-line="645" selection-end-column="76" />
+            <state relative-caret-position="-349">
+              <caret line="651" column="26" lean-forward="true" selection-start-line="651" selection-start-column="26" selection-end-line="651" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -244,7 +242,7 @@
       <workItem from="1521075043057" duration="78000" />
       <workItem from="1521856010381" duration="611000" />
       <workItem from="1522030618532" duration="212000" />
-      <workItem from="1527555150589" duration="2660000" />
+      <workItem from="1527555150589" duration="2714000" />
     </task>
     <task id="LOCAL-00001" summary="二叉树重现">
       <created>1511186476045</created>
@@ -257,7 +255,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129920000" />
+    <option name="totallyTimeSpent" value="129974000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="886" extended-state="6" />
@@ -769,8 +767,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lisy/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="645" column="76" lean-forward="true" selection-start-line="645" selection-start-column="6" selection-end-line="645" selection-end-column="76" />
+        <state relative-caret-position="-349">
+          <caret line="651" column="26" lean-forward="true" selection-start-line="651" selection-start-column="26" selection-end-line="651" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
