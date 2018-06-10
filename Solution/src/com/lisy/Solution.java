@@ -707,5 +707,43 @@ public class Solution {
         return result;
     }
 
+    /**
+     * 二叉搜索树与双向链表
+     * 输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表。要求不能创建任何新的结点，只能调整树中结点指针的指向。
+     */
+    public TreeNode Convert(TreeNode pRootOfTree) {
+
+        /*首先判断该节点是否为空, 为空则直接返回*/
+        if (pRootOfTree==null)
+            return null;
+
+        /*判断根节点的左右节点是否为空, 若都为空, 则直接返回根节点*/
+        if (pRootOfTree.left==null&&pRootOfTree.right==null)
+            return pRootOfTree;
+
+        /*将根节点的左子树遍历为双向链表*/
+        TreeNode left = Convert(pRootOfTree.left);
+
+        /*定义一个临时节点, 用于遍历左子树到尾节点*/
+        TreeNode p = left;
+        while (p!=null&&p.right!=null){
+            p = p.right;
+        }
+        /*如果左子树不为空, 则将左子树遍历后成双向队列的尾节点指向根节点*/
+        if (left!=null){
+            p.right=pRootOfTree;
+            pRootOfTree.left=p;
+        }
+        /*将右子树转换为有序双向队列*/
+        TreeNode right = Convert(pRootOfTree.right);
+        /*如果右子树不为空, 则将左子树的最后一个节点指向右子树的头节点*/
+        if (right!=null){
+            right.left=pRootOfTree;
+            pRootOfTree.right = right;
+        }
+
+        return left!=null?left:pRootOfTree;
+    }
+
 }
 
