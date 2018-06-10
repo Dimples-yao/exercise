@@ -645,8 +645,66 @@ public class Solution {
     * 时间限制：1秒 空间限制：32768K
     * 输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
     */
+    // 存放所有路径
+    ArrayList<ArrayList<Integer>> lists = new ArrayList<ArrayList<Integer>>();
+    // 用于遍历
+    ArrayList<Integer> list = new ArrayList<Integer>();
+    int num = 0;
     public ArrayList<ArrayList<Integer>> FindPath(TreeNode root,int target) {
-        return null;
+        if (root == null)
+            return lists;
+        num+=root.val;
+        list.add(root.val);
+        if (num == target && root.right==null && root.left==null){
+            ArrayList<Integer> path = new ArrayList<>();
+            for (int i = 0; i < list.size(); i++) {
+                path.add(list.get(i));
+            }
+            lists.add(path);
+        }
+
+        if (num<target && root.left!=null){
+            FindPath(root.left,target);
+        }
+
+        if (num<target && root.right!=null){
+            FindPath(root.right,target);
+        }
+
+        num-=root.val;
+
+        list.remove(list.size()-1);
+
+        return lists;
+    }
+
+    /**
+     * 时间限制：1秒 空间限制：32768K 热度指数：176974
+     * 输入一个复杂链表（每个节点中有节点值，以及两个指针，一个指向下一个节点，另一个特殊指针指向任意一个节点），返回结果为复制后复杂链表的head。（注意，输出结果中请不要返回参数中的节点引用，否则判题程序会直接返回空）
+     */
+    public class RandomListNode {
+        int label;
+        RandomListNode next = null;
+        RandomListNode random = null;
+
+        RandomListNode(int label) {
+            this.label = label;
+        }
+    }
+
+    RandomListNode temp;
+    RandomListNode result = temp;
+    public RandomListNode Clone(RandomListNode pHead) {
+        temp = pHead;
+        if (pHead.next!=null){
+            temp = temp.next;
+            Clone(pHead.next);
+        }
+        if (pHead.random!=null){
+            temp = temp.random;
+            Clone(pHead.random);
+        }
+        return result;
     }
 
 }
