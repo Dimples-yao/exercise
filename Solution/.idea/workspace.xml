@@ -17,8 +17,8 @@
       <file leaf-file-name="Solution.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/lisy/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="710" column="17" lean-forward="true" selection-start-line="710" selection-start-column="7" selection-end-line="710" selection-end-column="17" />
+            <state relative-caret-position="126">
+              <caret line="750" column="94" lean-forward="false" selection-start-line="750" selection-start-column="7" selection-end-line="750" selection-end-column="94" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2609#2618#0" expanded="true" />
@@ -536,7 +536,7 @@
       <workItem from="1521856010381" duration="611000" />
       <workItem from="1522030618532" duration="212000" />
       <workItem from="1526108129216" duration="4234000" />
-      <workItem from="1528596379454" duration="2583000" />
+      <workItem from="1528596379454" duration="5011000" />
     </task>
     <task id="LOCAL-00001" summary="二叉树重现">
       <created>1511186476045</created>
@@ -549,7 +549,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134077000" />
+    <option name="totallyTimeSpent" value="136505000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -1273,8 +1273,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lisy/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="710" column="17" lean-forward="true" selection-start-line="710" selection-start-column="7" selection-end-line="710" selection-end-column="17" />
+        <state relative-caret-position="126">
+          <caret line="750" column="94" lean-forward="false" selection-start-line="750" selection-start-column="7" selection-end-line="750" selection-end-column="94" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2609#2618#0" expanded="true" />
