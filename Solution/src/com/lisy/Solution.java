@@ -1,10 +1,7 @@
 package com.lisy;
 
 import javax.swing.tree.TreeNode;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Stack;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * Created by NEUNB_Lisy on 2017/11/11.
@@ -753,8 +750,32 @@ public class Solution {
      * 输入一个字符串,长度不超过9(可能有字符重复),字符只包括大小写字母。
      */
     public ArrayList<String> Permutation(String str) {
-        ArrayList<String> result = new ArrayList<>();
-        return result;
+        ArrayList<String> resultPermutation = new ArrayList<>();
+        if (str.equals("")||str.length()==0)
+            return resultPermutation;
+        TreeSet<String> treeSet = new TreeSet<>();
+        char[] chars = str.toCharArray();
+        changeChars(chars,0,chars.length-1,treeSet);
+        resultPermutation.addAll(treeSet);
+        return resultPermutation;
+    }
+    public void changeChars(char[] chars,int star, int end, TreeSet<String> treeSet){
+        if (star==end)
+            treeSet.add(String.valueOf(chars));
+        else {
+            for (int i = star;i<=end;i++){
+                swap(chars,star,i);
+                changeChars(chars,star+1,end,treeSet);
+                swap(chars,star,i);
+            }
+        }
+    }
+    public void swap(char[] chars,int star, int end){
+        if (star==end){}else {
+            char tem = chars[star];
+            chars[star] = chars[end];
+            chars[end] = tem;
+        }
     }
 
 }
