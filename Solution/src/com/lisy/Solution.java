@@ -1,6 +1,5 @@
 package com.lisy;
 
-import javax.swing.tree.TreeNode;
 import java.util.*;
 
 /**
@@ -797,6 +796,28 @@ public class Solution {
                 return x;
         }
         return 0;
+    }
+
+    /**
+     * 最小的K个数
+     * 输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。
+     */
+    public ArrayList<Integer> GetLeastNumbers_Solution(int [] input, int k) {
+        TreeSet<Integer> set = new TreeSet<>();
+        ArrayList<Integer> result = new ArrayList<>();
+        if (k>input.length){
+            return result;
+        }
+        for (int i:input)
+            set.add(i);
+        int tem=0;
+        for (int i:set){
+            if (tem<k){
+                result.add(i);
+                tem++;
+            }
+        }
+        return result;
     }
 
 }
