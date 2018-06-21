@@ -898,5 +898,54 @@ public class Solution {
         }
     }
 
+    /**
+     * 丑数
+     * 把只包含因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。
+     */
+    /*该方法时间复杂度太大
+    public int GetUglyNumber_Solution(int index) {
+        int count = 0;
+        int i;
+        for(i=1;count<=index;i++){
+            if(judgeUglyNumber(i))
+                count++;
+        }
+        return i;
+    }
+    public boolean judgeUglyNumber(int n){
+        while(n%3==0)
+            n = n/3;
+        while(n%2==0)
+            n = n/2;
+        while(n%5==0)
+            n = n/5;
+        if(n==1)
+            return true;
+        else
+            return false;
+    }*/
+    public int GetUglyNumber_Solution(int index) {
+        if (index==0)
+            return 0;
+        int[] a = new int[index];
+        int count = 1;
+        a[0] = 1;
+        int index2=0;
+        int index3=0;
+        int index5=0;
+        while (count<index){
+            a[count] = getMinUgly(a[index2]*2,a[index3]*3,a[index5]*5);
+            while (a[index2]*2<=a[count]) index2++;
+            while (a[index3]*3<=a[count]) index3++;
+            while (a[index5]*5<=a[count]) index5++;
+            count++;
+        }
+        return a[index-1];
+    }
+    public int getMinUgly(int a,int b, int c){
+        int tem = a>b?b:a;
+        return c>tem?tem:c;
+    }
+
 }
 
