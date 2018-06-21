@@ -860,5 +860,43 @@ public class Solution {
         return result;
     }
 
+    /**
+     * 把数组排成最小的数
+     * 输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。
+     */
+    public String PrintMinNumber(int [] numbers) {
+        if (numbers.length==0)
+            return "";
+        String[] strs = new String[numbers.length];
+        for (int i=0;i<numbers.length;i++)
+            strs[i] = String.valueOf(numbers[i]);
+        TreeSet<Long> set = new TreeSet<>();
+        changeStrings(0,numbers.length-1,strs,set);
+        return String.valueOf(set.first());
+    }
+    public void changeStrings(int start,int end,String[] strings,TreeSet<Long> set){
+        if (start==end){
+            StringBuilder tem = new StringBuilder();
+            for (String str:strings){
+                tem.append(str);
+            }
+            set.add(Long.valueOf(String.valueOf(tem)));
+        }else {
+            for (int i = start;i<=end;i++){
+                swapString(strings,start,i);
+                changeStrings(start+1,end,strings,set);
+                swapString(strings,start,i);
+            }
+        }
+    }
+    public void swapString(String[] strings,int start,int end){
+        if (start==end){}else {
+            String tem;
+            tem = strings[start];
+            strings[start] = strings[end];
+            strings[end] = tem;
+        }
+    }
+
 }
 
