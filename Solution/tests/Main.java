@@ -9,6 +9,6 @@ public class Main {
         int[] in = {3,2,4,1,6,5,7};
         solution.reConstructBinaryTree(pre,in);*/
         int[] test = {3334,3,3333332};
-        System.out.println(solution.GetUglyNumber_Solution(7));
+        System.out.println(solution.FirstNotRepeatingChar("google"));
     }
 }

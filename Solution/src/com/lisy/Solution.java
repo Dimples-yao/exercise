@@ -947,5 +947,28 @@ public class Solution {
         return c>tem?tem:c;
     }
 
+    /**
+     * 第一个只出现一次的字符
+     * 在一个字符串(1<=字符串长度<=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置
+     * 未完成
+     */
+    public int FirstNotRepeatingChar(String str) {
+        LinkedHashMap<Character,Integer> map = new LinkedHashMap<>();
+        char[] chars = str.toCharArray();
+        for (char c:chars){
+            if (map.containsKey(c))
+                map.put(c,map.get(c)+1);
+            else map.put(c,1);
+        }
+        int i=0;
+        for (char c:map.keySet()){
+            if (map.get(c)==1){
+                return i;
+            }
+            i++;
+        }
+        return 0;
+    }
+
 }
 
