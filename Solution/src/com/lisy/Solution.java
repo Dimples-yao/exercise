@@ -953,20 +953,45 @@ public class Solution {
      * 未完成
      */
     public int FirstNotRepeatingChar(String str) {
-        LinkedHashMap<Character,Integer> map = new LinkedHashMap<>();
+        LinkedHashMap<Character,Integer[]> map = new LinkedHashMap<>();
         char[] chars = str.toCharArray();
-        for (char c:chars){
-            if (map.containsKey(c))
-                map.put(c,map.get(c)+1);
-            else map.put(c,1);
-        }
-        int i=0;
-        for (char c:map.keySet()){
-            if (map.get(c)==1){
-                return i;
+        for (int i=0;i<chars.length;i++) {
+            if (map.containsKey(chars[i])){
+                Integer[] tem = map.get(chars[i]);
+                tem[1] = tem[1]+1;
+            }else {
+                Integer[] tag = new Integer[2];
+                tag[0] = i;
+                tag[1] = 1;
+                map.put(chars[i], tag);
             }
-            i++;
         }
+
+        for (Character c:map.keySet()){
+            Integer[] tag_tem = map.get(c);
+            if (tag_tem[1]==1){
+                return tag_tem[0];
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组,求出这个数组中的逆序对的总数P。并将P对1000000007取模的结果输出。 即输出P%1000000007
+     * 输入描述:
+     * 题目保证输入的数组中没有的相同的数字
+     * 数据范围：
+     * 	对于%50的数据,size<=10^4
+     * 	对于%75的数据,size<=10^5
+     * 	对于%100的数据,size<=2*10^5
+     *
+     * 示例1
+     * 输入
+     * 1,2,3,4,5,6,7,0
+     * 输出
+     * 7
+     */
+    public int InversePairs(int [] array) {
         return 0;
     }
 
