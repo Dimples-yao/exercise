@@ -991,9 +991,72 @@ public class Solution {
      * 输出
      * 7
      */
-    public int InversePairs(int [] array) {
-        return 0;
+    public int InversePairs(int[] array) {
+        if (array.length == 0) {
+            return 0;
+        }
+        if (array == null) {
+            return 0;
+        }
+        int[] temp = new int[array.length];
+        int count = inversePairsCore(array, temp, 0, array.length - 1);
+        return (count % 1000000007);
     }
 
+
+    // 使用分类归并算法
+    public int inversePairsCore(int array[], int temp[], int start, int end) {
+        if (start == end) {
+// 递归遍历到只有一个元素
+            temp[start] = array[start];
+            return 0;
+        }
+// 中间位置
+        int len = (end - start) / 2;
+// 左半边逆序对数
+        int left_count = inversePairsCore(array, temp, start, start + len) % 1000000007;
+// 右半边逆序对数
+        int right_count = inversePairsCore(array, temp, start + len + 1, end) % 1000000007;
+// 归并排序
+        int i = start + len;
+        int j = end;
+        int index = end;
+        int count = 0;// 统计逆序数
+        while (i >= start && j >= start + len + 1) {
+            if (array[i] > array[j]) {
+                temp[index] = array[i];
+                i--;
+                index--;
+                count += j - (start + len);
+                if(count>=1000000007)//数值过大求余
+                {
+                    count%=1000000007;
+                }
+            } else {
+                temp[index] = array[j];
+                j--;
+                index--;
+            }
+        }
+// 处理剩下的左半分支
+        for (; i >= start; i--) {
+// 右半边已经归并
+            temp[index] = array[i];
+            index--;
+        }
+// 处理剩下的右半分支
+        for (; j >= start + len + 1; j--) {
+// 左半边已经归并
+            temp[index] = array[j];
+            index--;
+        }
+        for (int k = start; k <= end; k++) {
+            //将原数组进行排序
+            array[k] = temp[k];
+        }
+
+
+        return (count + left_count + right_count )% 1000000007;
+    }
 }
 
