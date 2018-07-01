@@ -1,6 +1,5 @@
 package com.lisy;
 
-import javax.swing.tree.TreeNode;
 import java.util.*;
 
 /**
@@ -778,5 +777,286 @@ public class Solution {
         }
     }
 
+    /**
+     * 数组中出现次数超过一半的数字
+     * 数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。
+     */
+    public int MoreThanHalfNum_Solution(int [] array) {
+        Map<Integer,Integer> map = new HashMap<>();
+        for (int x:array){
+            if (map.containsKey(x)){
+                int i = map.get(x)+1;
+                map.put(x,i);
+            }else {
+                map.put(x,1);
+            }
+        }
+        for (int x:map.keySet()){
+            if (map.get(x)>(array.length/2))
+                return x;
+        }
+        return 0;
+    }
+
+    /**
+     * 最小的K个数
+     * 输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。
+     */
+    public ArrayList<Integer> GetLeastNumbers_Solution(int [] input, int k) {
+        TreeSet<Integer> set = new TreeSet<>();
+        ArrayList<Integer> result = new ArrayList<>();
+        if (k>input.length){
+            return result;
+        }
+        for (int i:input)
+            set.add(i);
+        int tem=0;
+        for (int i:set){
+            if (tem<k){
+                result.add(i);
+                tem++;
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 连续子数组的最大和
+     * HZ偶尔会拿些专业问题来忽悠那些非计算机专业的同学。今天测试组开完会后,他又发话了:在古老的一维模式识别中,常常需要计算连续子向量的最大和,当向量全为正数的时候,问题很好解决。但是,如果向量中包含负数,是否应该包含某个负数,并期望旁边的正数会弥补它呢？例如:{6,-3,-2,7,-15,1,2,2},连续子向量的最大和为8(从第0个开始,到第3个为止)。你会不会被他忽悠住？(子向量的长度至少是1)
+     */
+    public int FindGreatestSumOfSubArray(int[] array) {
+        int sum =0;
+        int max = array[0];
+        for(int i=0;i<array.length;i++){
+            if(sum>=0)
+            {  //首先进行求和
+                sum= sum+array[i];
+            }else{
+                //求和的正数区间结束，将当前的值设置为初值
+                sum=array[i];
+            }
+            if(sum>max)
+                //记录每个求和区间的最大值
+                max = sum;
+        }
+        return max;
+    }
+
+    /**
+     * 整数中1出现的次数（从1到n整数中1出现的次数）
+     * 求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？为此他特别数了一下1~13中包含1的数字有1、10、11、12、13因此共出现6次,但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,可以很快的求出任意非负整数区间中1出现的次数。
+     */
+    public int NumberOf1Between1AndN_Solution(int n) {
+        int result = 0;
+        for (int i=0;i<=n;i++){
+            String str = String.valueOf(i);
+            char[] chars = str.toCharArray();
+            for (char a:chars){
+                if (String.valueOf(a).equals("1")){
+                    result++;
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 把数组排成最小的数
+     * 输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。
+     */
+    public String PrintMinNumber(int [] numbers) {
+        if (numbers.length==0)
+            return "";
+        String[] strs = new String[numbers.length];
+        for (int i=0;i<numbers.length;i++)
+            strs[i] = String.valueOf(numbers[i]);
+        TreeSet<Long> set = new TreeSet<>();
+        changeStrings(0,numbers.length-1,strs,set);
+        return String.valueOf(set.first());
+    }
+    public void changeStrings(int start,int end,String[] strings,TreeSet<Long> set){
+        if (start==end){
+            StringBuilder tem = new StringBuilder();
+            for (String str:strings){
+                tem.append(str);
+            }
+            set.add(Long.valueOf(String.valueOf(tem)));
+        }else {
+            for (int i = start;i<=end;i++){
+                swapString(strings,start,i);
+                changeStrings(start+1,end,strings,set);
+                swapString(strings,start,i);
+            }
+        }
+    }
+    public void swapString(String[] strings,int start,int end){
+        if (start==end){}else {
+            String tem;
+            tem = strings[start];
+            strings[start] = strings[end];
+            strings[end] = tem;
+        }
+    }
+
+    /**
+     * 丑数
+     * 把只包含因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。
+     */
+    /*该方法时间复杂度太大
+    public int GetUglyNumber_Solution(int index) {
+        int count = 0;
+        int i;
+        for(i=1;count<=index;i++){
+            if(judgeUglyNumber(i))
+                count++;
+        }
+        return i;
+    }
+    public boolean judgeUglyNumber(int n){
+        while(n%3==0)
+            n = n/3;
+        while(n%2==0)
+            n = n/2;
+        while(n%5==0)
+            n = n/5;
+        if(n==1)
+            return true;
+        else
+            return false;
+    }*/
+    public int GetUglyNumber_Solution(int index) {
+        if (index==0)
+            return 0;
+        int[] a = new int[index];
+        int count = 1;
+        a[0] = 1;
+        int index2=0;
+        int index3=0;
+        int index5=0;
+        while (count<index){
+            a[count] = getMinUgly(a[index2]*2,a[index3]*3,a[index5]*5);
+            while (a[index2]*2<=a[count]) index2++;
+            while (a[index3]*3<=a[count]) index3++;
+            while (a[index5]*5<=a[count]) index5++;
+            count++;
+        }
+        return a[index-1];
+    }
+    public int getMinUgly(int a,int b, int c){
+        int tem = a>b?b:a;
+        return c>tem?tem:c;
+    }
+
+    /**
+     * 第一个只出现一次的字符
+     * 在一个字符串(1<=字符串长度<=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置
+     * 未完成
+     */
+    public int FirstNotRepeatingChar(String str) {
+        LinkedHashMap<Character,Integer[]> map = new LinkedHashMap<>();
+        char[] chars = str.toCharArray();
+        for (int i=0;i<chars.length;i++) {
+            if (map.containsKey(chars[i])){
+                Integer[] tem = map.get(chars[i]);
+                tem[1] = tem[1]+1;
+            }else {
+                Integer[] tag = new Integer[2];
+                tag[0] = i;
+                tag[1] = 1;
+                map.put(chars[i], tag);
+            }
+        }
+
+        for (Character c:map.keySet()){
+            Integer[] tag_tem = map.get(c);
+            if (tag_tem[1]==1){
+                return tag_tem[0];
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组,求出这个数组中的逆序对的总数P。并将P对1000000007取模的结果输出。 即输出P%1000000007
+     * 输入描述:
+     * 题目保证输入的数组中没有的相同的数字
+     * 数据范围：
+     * 	对于%50的数据,size<=10^4
+     * 	对于%75的数据,size<=10^5
+     * 	对于%100的数据,size<=2*10^5
+     *
+     * 示例1
+     * 输入
+     * 1,2,3,4,5,6,7,0
+     * 输出
+     * 7
+     */
+    public int InversePairs(int[] array) {
+        if (array.length == 0) {
+            return 0;
+        }
+        if (array == null) {
+            return 0;
+        }
+        int[] temp = new int[array.length];
+        int count = inversePairsCore(array, temp, 0, array.length - 1);
+        return (count % 1000000007);
+    }
+
+
+    // 使用分类归并算法
+    public int inversePairsCore(int array[], int temp[], int start, int end) {
+        if (start == end) {
+// 递归遍历到只有一个元素
+            temp[start] = array[start];
+            return 0;
+        }
+// 中间位置
+        int len = (end - start) / 2;
+// 左半边逆序对数
+        int left_count = inversePairsCore(array, temp, start, start + len) % 1000000007;
+// 右半边逆序对数
+        int right_count = inversePairsCore(array, temp, start + len + 1, end) % 1000000007;
+// 归并排序
+        int i = start + len;
+        int j = end;
+        int index = end;
+        int count = 0;// 统计逆序数
+        while (i >= start && j >= start + len + 1) {
+            if (array[i] > array[j]) {
+                temp[index] = array[i];
+                i--;
+                index--;
+                count += j - (start + len);
+                if(count>=1000000007)//数值过大求余
+                {
+                    count%=1000000007;
+                }
+            } else {
+                temp[index] = array[j];
+                j--;
+                index--;
+            }
+        }
+// 处理剩下的左半分支
+        for (; i >= start; i--) {
+// 右半边已经归并
+            temp[index] = array[i];
+            index--;
+        }
+// 处理剩下的右半分支
+        for (; j >= start + len + 1; j--) {
+// 左半边已经归并
+            temp[index] = array[j];
+            index--;
+        }
+        for (int k = start; k <= end; k++) {
+            //将原数组进行排序
+            array[k] = temp[k];
+        }
+
+
+        return (count + left_count + right_count )% 1000000007;
+    }
 }
 
