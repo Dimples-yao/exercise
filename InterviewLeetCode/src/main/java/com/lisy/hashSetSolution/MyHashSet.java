@@ -8,24 +8,24 @@ package com.lisy.hashSetSolution;
  */
 public class MyHashSet {
 
-    int[] map;
+    int[] set;
 
    /** Initialize your data structure here. */
     public MyHashSet() {
-        map = new int[1000000];
+        set = new int[1000000];
     }
 
     public void add(int key) {
-        map[hash(key)] = key+1;
+        set[hash(key)] = key+1;
     }
 
     public void remove(int key) {
-        map[hash(key)] = 0;
+        set[hash(key)] = 0;
     }
 
     /** Returns true if this set did not already contain the specified element */
     public boolean contains(int key) {
-        return map[hash(key)]!=0;
+        return set[hash(key)]!=0;
     }
 
     public int hash(int key){
