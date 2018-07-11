@@ -36,6 +36,7 @@ public class Solution {
         return result;
     }
     public class ListNode {
+        ListNode() {};
         int val;
         ListNode next = null;
         ListNode(int val) {
@@ -1053,6 +1054,55 @@ public class Solution {
         return (count + left_count + right_count )% 1000000007;
     }
 
+    /*
+    *
+    * 两个链表的第一个公共结点
+    * 题目描述
+    * 输入两个链表，找出它们的第一个公共结点。
+    */
+    public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
+        int length1 = getListNodeLength(pHead1);
+        int length2 = getListNodeLength(pHead2);
+        if (length1 == 0 || length2 == 0) {
+            return null;
+        }
+
+        ListNode pointLongListNode = null;
+        ListNode pointShortListNode = null;
+        int dif = 0;
+        if (length1 > length2) {
+            pointLongListNode = pHead1;
+            pointShortListNode = pHead2;
+
+        } else {
+            pointLongListNode = pHead2;
+            pointShortListNode = pHead1;
+        }
+        dif = Math.abs(length1 - length2);
+
+        for (int i = 0; i < dif; i++) {
+            pointLongListNode = pointLongListNode.next;
+        }
+        while (pointLongListNode != null && pointShortListNode != null
+                && pointLongListNode != pointShortListNode) {
+            pointLongListNode = pointLongListNode.next;
+            pointShortListNode = pointShortListNode.next;
+        }
+
+        return pointLongListNode;
+    }
+    public int getListNodeLength(ListNode listNode){
+        if (listNode == null)
+            return 0;
+        ListNode temp = listNode;
+        int i = 0;
+        while (temp.next!=null){
+            i++;
+            temp = temp.next;
+        }
+        return i;
+
+    }
 
 }
 
