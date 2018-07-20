@@ -1101,7 +1101,15 @@ public class Solution {
             temp = temp.next;
         }
         return i;
+    }
 
+    /*
+    * 数字在排序数组中出现的次数
+    * 题目描述
+    * 统计一个数字在排序数组中出现的次数。
+    */
+    public int GetNumberOfK(int [] array , int k) {
+        return 0;
     }
 
 }
