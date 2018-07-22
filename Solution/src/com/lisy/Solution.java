@@ -36,6 +36,7 @@ public class Solution {
         return result;
     }
     public class ListNode {
+        ListNode() {};
         int val;
         ListNode next = null;
         ListNode(int val) {
@@ -992,18 +993,11 @@ public class Solution {
      * 7
      */
     public int InversePairs(int[] array) {
-        if (array.length == 0) {
+        if (array.length==0 || array.length==1)
             return 0;
-        }
-        if (array == null) {
-            return 0;
-        }
         int[] temp = new int[array.length];
-        int count = inversePairsCore(array, temp, 0, array.length - 1);
-        return (count % 1000000007);
+        return inversePairsCore(array,temp,0,array.length-1)%1000000007;
     }
-
-
     // 使用分类归并算法
     public int inversePairsCore(int array[], int temp[], int start, int end) {
         if (start == end) {
@@ -1018,9 +1012,9 @@ public class Solution {
 // 右半边逆序对数
         int right_count = inversePairsCore(array, temp, start + len + 1, end) % 1000000007;
 // 归并排序
-        int i = start + len;
-        int j = end;
-        int index = end;
+        int i = start + len;//记录左边数组的最后一个数的下标
+        int j = end;//记录右边数组的最后一个数的下标
+        int index = end;//记录复制数组的当前位置
         int count = 0;// 统计逆序数
         while (i >= start && j >= start + len + 1) {
             if (array[i] > array[j]) {
@@ -1038,6 +1032,7 @@ public class Solution {
                 index--;
             }
         }
+        //剩下的操作只是让数组排列好顺序
 // 处理剩下的左半分支
         for (; i >= start; i--) {
 // 右半边已经归并
@@ -1058,5 +1053,64 @@ public class Solution {
 
         return (count + left_count + right_count )% 1000000007;
     }
+
+    /*
+    *
+    * 两个链表的第一个公共结点
+    * 题目描述
+    * 输入两个链表，找出它们的第一个公共结点。
+    */
+    public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
+        int length1 = getListNodeLength(pHead1);
+        int length2 = getListNodeLength(pHead2);
+        if (length1 == 0 || length2 == 0) {
+            return null;
+        }
+
+        ListNode pointLongListNode = null;
+        ListNode pointShortListNode = null;
+        int dif = 0;
+        if (length1 > length2) {
+            pointLongListNode = pHead1;
+            pointShortListNode = pHead2;
+
+        } else {
+            pointLongListNode = pHead2;
+            pointShortListNode = pHead1;
+        }
+        dif = Math.abs(length1 - length2);
+
+        for (int i = 0; i < dif; i++) {
+            pointLongListNode = pointLongListNode.next;
+        }
+        while (pointLongListNode != null && pointShortListNode != null
+                && pointLongListNode != pointShortListNode) {
+            pointLongListNode = pointLongListNode.next;
+            pointShortListNode = pointShortListNode.next;
+        }
+
+        return pointLongListNode;
+    }
+    public int getListNodeLength(ListNode listNode){
+        if (listNode == null)
+            return 0;
+        ListNode temp = listNode;
+        int i = 0;
+        while (temp.next!=null){
+            i++;
+            temp = temp.next;
+        }
+        return i;
+    }
+
+    /*
+    * 数字在排序数组中出现的次数
+    * 题目描述
+    * 统计一个数字在排序数组中出现的次数。
+    */
+    public int GetNumberOfK(int [] array , int k) {
+        return 0;
+    }
+
 }
 
