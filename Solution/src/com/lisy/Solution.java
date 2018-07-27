@@ -1208,6 +1208,35 @@ public class Solution {
         return lists;
     }
 
+    /**
+     * 和为S的两个数字
+     * 题目描述
+     * 输入一个递增排序的数组和一个数字S，在数组中查找两个数，使得他们的和正好是S，如果有多对数字的和等于S，输出两个数的乘积最小的。
+     * 输出描述:
+     * 对应每个测试案例，输出两个数，小的先输出。
+     */
+    public ArrayList<Integer> FindNumbersWithSum(int [] array,int sum) {
+        TreeMap<Integer,ArrayList<Integer>> treeMap = new TreeMap<>();
+        getAllInteger(array,sum,0,array.length-1,treeMap);
+        if (treeMap.size()>0)
+            return treeMap.get(treeMap.firstKey());
+        return new ArrayList<>();
+    }
+    public void getAllInteger(int[] array,int sum,int i,int j,TreeMap<Integer,ArrayList<Integer>> treeMap){
+        if (i>=j)
+            return;
+        if (array[i]+array[j]==sum){
+            ArrayList<Integer> list = new ArrayList<>();
+            list.add(array[i]);
+            list.add(array[j]);
+            treeMap.put(i*j,list);
+            getAllInteger(array,sum,i+1,j,treeMap);
+            getAllInteger(array,sum,i,j-1,treeMap);
+        }else {
+            getAllInteger(array,sum,i+1,j,treeMap);
+            getAllInteger(array,sum,i,j-1,treeMap);
+        }
+    }
 
 }
 
