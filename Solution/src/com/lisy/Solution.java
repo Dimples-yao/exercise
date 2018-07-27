@@ -1109,6 +1109,14 @@ public class Solution {
     * 统计一个数字在排序数组中出现的次数。
     */
     public int GetNumberOfK(int [] array , int k) {
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for (int x:array) {
+            if (map.containsKey(x))
+                map.put(x,map.get(x)+1);
+            else map.put(x,1);
+        }
+        if (map.containsKey(k))
+            return map.get(k);
         return 0;
     }
 
