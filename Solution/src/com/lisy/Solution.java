@@ -1133,5 +1133,22 @@ public class Solution {
         return left>right?left+1:right+1;
     }
 
+    /**
+     * 平衡二叉树
+     * 题目描述
+     * 输入一棵二叉树，判断该二叉树是否是平衡二叉树。
+     */
+    public boolean IsBalanced_Solution(TreeNode root) {
+        if (root==null||(root.left==null&&root.right==null))
+            return true;
+        int left = TreeDepth(root.left);
+        int right = TreeDepth(root.right);
+        if (Math.abs(left-right)>1)
+            return false;
+        boolean leftBoolean = IsBalanced_Solution(root.left);
+        boolean rightBoolean = IsBalanced_Solution(root.right);
+        return leftBoolean&&rightBoolean;
+    }
+
 }
 
