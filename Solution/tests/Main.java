@@ -9,6 +9,7 @@ public class Main {
         int[] in = {3,2,4,1,6,5,7};
         solution.reConstructBinaryTree(pre,in);*/
         int[] test = {2,4,3,6,3,2,5,5};
+        
         System.out.println(solution.FindContinuousSequence(9));
     }
 }
