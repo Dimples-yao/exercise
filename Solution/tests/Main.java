@@ -10,6 +10,6 @@ public class Main {
         solution.reConstructBinaryTree(pre,in);*/
         int[] test = {1,2,4,7,11,16};
 
-        System.out.println(solution.FindNumbersWithSum(test,10));
+        System.out.println(solution.LeftRotateString("abcXYZdef",3));
     }
 }
