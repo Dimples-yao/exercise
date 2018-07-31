@@ -1,5 +1,7 @@
 import com.lisy.Solution;
 
+import java.util.*;
+
 /*https://www.nowcoder.com/ta/coding-interviews   在线编程->剑指offer*/
 public class Main {
 
@@ -10,6 +12,6 @@ public class Main {
         solution.reConstructBinaryTree(pre,in);*/
         int[] test = {1,2,3,4,5};
 
-        System.out.println(solution.isContinuous(test));
+        System.out.println(solution.LastRemaining_Solution(5,3));
     }
 }
