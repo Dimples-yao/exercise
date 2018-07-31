@@ -8,8 +8,8 @@ public class Main {
         /*int[] pre = {1,2,3,4,5,6,7};
         int[] in = {3,2,4,1,6,5,7};
         solution.reConstructBinaryTree(pre,in);*/
-        int[] test = {1,2,4,7,11,16};
+        int[] test = {1,2,3,4,5};
 
-        System.out.println(solution.LeftRotateString("abcXYZdef",3));
+        System.out.println(solution.isContinuous(test));
     }
 }
