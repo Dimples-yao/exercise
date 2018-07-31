@@ -1349,5 +1349,47 @@ public class Solution {
         return ans;
     }
 
+    /**
+     * 不用加减乘除做加法
+     * 题目描述
+     * 写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。
+     */
+    public int Add(int num1,int num2) {
+        ArrayList<Integer> listUp = new ArrayList<>();
+        ArrayList<Integer> listDown = new ArrayList<>();
+        if(num1<0){
+            for (int i = 0; i < -num1; i++) {
+                listDown.add(i);
+            }
+        }else{
+            for (int i = 0; i < num1; i++) {
+                listUp.add(i);
+            }
+        }
+        if (num2>0){
+            for (int i = 0; i < num2; i++) {
+                listUp.add(i);
+            }
+        }else {
+            for (int i = 0; i < -num2; i++) {
+                listDown.add(i);
+            }
+        }
+        ArrayList<Integer> list = new ArrayList<>();
+        if (listDown.size()>listUp.size()){
+            for (int i=listUp.size();i<listDown.size();i++){
+                list.add(listDown.get(i));
+            }
+            return -list.size();
+        }
+        if (listUp.size()>listDown.size()){
+            for (int i = listDown.size();i<listUp.size();i++){
+                list.add(listUp.get(i));
+            }
+            return list.size();
+        }
+        return 0;
+    }
+
 }
 
