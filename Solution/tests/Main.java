@@ -12,6 +12,6 @@ public class Main {
         solution.reConstructBinaryTree(pre,in);*/
         int[] test = {1,2,3,4,5};
 
-        System.out.println(solution.Add(5,-6));
+        System.out.println(solution.StrToInt("123"));
     }
 }
