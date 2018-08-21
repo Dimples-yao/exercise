@@ -1,7 +1,5 @@
 package com.lisy;
 
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
-
 import java.util.*;
 
 /**
@@ -1444,8 +1442,18 @@ public class Solution {
     // Return value:       true if the input is valid, and there are some duplications in the array number
     //                     otherwise false
     public boolean duplicate(int numbers[],int length,int [] duplication) {
+        if (length==0){
+            duplication[0]=-1;
+            return false;
+        }
         HashSet<Integer> hashSet = new HashSet<>();
-
+        for (int i:numbers) {
+            if (hashSet.contains(i)){
+                duplication[0] = i;
+                return true;
+            }
+            hashSet.add(i);
+        }
         return false;
     }
 
