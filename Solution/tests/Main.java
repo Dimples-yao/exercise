@@ -11,7 +11,8 @@ public class Main {
         int[] in = {3,2,4,1,6,5,7};
         solution.reConstructBinaryTree(pre,in);*/
         int[] test = {1,2,3,4,5};
-        int [] duplication = new int[test.length];
-        System.out.println(solution.multiply(test));
+        char[] str = {};
+        char[] pattern = {'.','*'};
+        System.out.println(solution.match(str,pattern));
     }
 }
