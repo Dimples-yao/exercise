@@ -15,8 +15,6 @@ public class Main {
         char[] pattern = {'.','*'};
         System.out.println(solution.match(str,pattern));
     }
-    /**
-     * 测试git
-     */
+    /***/
 
 }
