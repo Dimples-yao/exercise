@@ -6,7 +6,7 @@
  * Time: 14:28
  */
 
-class solution
+class Solution
 {
     /**
      * 两数之和:https://leetcode-cn.com/problems/two-sum/
@@ -76,9 +76,19 @@ class solution
     /**
      * 多米诺和托米诺平铺:https://leetcode-cn.com/problems/domino-and-tromino-tiling/
      * @param $N
+     * @return int
      */
     function numTilings($N)
     {
+        $M     = pow(10,9)+7;
+        $dp    = [];
+        $dp[0] = 1;
+        $dp[1] = 1;
+        $dp[2] = 2;
+        for ($i = 3; $i <= $N; $i++) {
+            $dp[$i] = ($dp[$i - 1] * 2 + $dp[$i - 3]) % $M;
+        }
+        return $dp[$N];
     }
 
 }
