@@ -112,4 +112,45 @@ class Solution
         return $dp[$m][$n];
     }
 
+    public $letter
+        = [
+            '0' => ' ',
+            '1' => '',
+            '2' => ['a', 'b', 'c'],
+            '3' => ['d', 'e', 'f'],
+            '4' => ['g', 'h', 'i'],
+            '5' => ['j', 'k', 'l'],
+            '6' => ['m', 'n', 'o'],
+            '7' => ['p', 'q', 'r', 's'],
+            '8' => ['t', 'u', 'v'],
+            '9' => ['w', 'x', 'y', 'z'],
+        ];
+
+    /**
+     * 电话号码的字母组合：https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/submissions/
+     * 暴力递归，回朔法
+     * @param String $digits
+     * @return String[]
+     */
+    function letterCombinations($digits)
+    {
+        $data = [];
+        if (strlen($digits) == 0) {
+            return $data;
+        }
+        $this->addToList(0, $digits, $data, '');
+        return $data;
+    }
+
+    function addToList($i, $digits, &$data, $fuck)
+    {
+        if ($i == strlen($digits)) {
+            $data[] = $fuck;
+        }
+        for ($j = 0; $j < sizeof($this->letter[$digits[$i]]); $j++) {
+            $this->addToList($i + 1, $digits, $data, $fuck . $this->letter[$digits[$i]][$j]);
+        }
+        unset($data);
+    }
+
 }

@@ -6,6 +6,5 @@
  * Time: 11:33
  */
 include('./problems/Solution.php');
-$N     = $argv[1];
 $solution = new Solution();
-echo $solution->uniquePaths(2,2);
+var_dump($solution->letterCombinations("234"));
