@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2bc0836-fec9-4c4d-968f-3bc604e74bd1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test/Test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.leetcode.com.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.leetcode.com.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/problems/Solution.php" beforeDir="false" afterPath="$PROJECT_DIR$/problems/Solution.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.leetcode.com.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,7 +20,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/problems/Solution.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
+            <state relative-caret-position="341">
               <caret line="82" column="29" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
             </state>
           </provider>
@@ -28,7 +30,7 @@
         <entry file="file://$PROJECT_DIR$/test/Test.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+              <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -66,11 +68,11 @@
         <subPane>
           <expand>
             <path>
-              <item name="php.leetcode.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="leetcode" type="b2602c69:ProjectViewProjectNode" />
               <item name="php.leetcode.com" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="php.leetcode.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="leetcode" type="b2602c69:ProjectViewProjectNode" />
               <item name="php.leetcode.com" type="462c0819:PsiDirectoryNode" />
               <item name="problems" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -113,16 +115,15 @@
       <workItem from="1552839972906" duration="587000" />
       <workItem from="1552896924142" duration="792000" />
       <workItem from="1552907333883" duration="474000" />
-      <workItem from="1552962604408" duration="2962000" />
+      <workItem from="1552962604408" duration="3209000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4815000" />
+    <option name="totallyTimeSpent" value="5062000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19382322" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -159,13 +160,13 @@
     <entry file="file://$PROJECT_DIR$/test/Test.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/problems/Solution.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
+        <state relative-caret-position="341">
           <caret line="82" column="29" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
         </state>
       </provider>
