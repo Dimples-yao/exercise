@@ -8,4 +8,4 @@
 include('./problems/Solution.php');
 $N     = $argv[1];
 $solution = new Solution();
-echo $solution->numTilings($N);
+echo $solution->uniquePaths(2,2);

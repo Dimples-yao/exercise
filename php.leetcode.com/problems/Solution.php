@@ -80,7 +80,7 @@ class Solution
      */
     function numTilings($N)
     {
-        $M     = pow(10,9)+7;
+        $M     = pow(10, 9) + 7;
         $dp    = [];
         $dp[0] = 1;
         $dp[1] = 1;
@@ -89,6 +89,27 @@ class Solution
             $dp[$i] = ($dp[$i - 1] * 2 + $dp[$i - 3]) % $M;
         }
         return $dp[$N];
+    }
+
+    /**
+     * 不同路径:https://leetcode-cn.com/problems/unique-paths/
+     * @param Integer $m
+     * @param Integer $n
+     * @return Integer
+     */
+    function uniquePaths($m, $n)
+    {
+        $dp = [];
+        for ($i = 1; $i <= $m; $i++) {
+            for ($j = 1; $j <= $n; $j++) {
+                if ($i == 1 || $j == 1) {
+                    $dp[$i][$j] = 1;
+                } else {
+                    $dp[$i][$j] = $dp[$i - 1][$j] + $dp[$i][$j - 1];
+                }
+            }
+        }
+        return $dp[$m][$n];
     }
 
 }
