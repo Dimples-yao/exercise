@@ -1,5 +1,12 @@
+.DS_Store
+
 /php.leetcode.com/.idea
 /php.leetcode.com/.DS_Store
+
 /java.newcoder.com/out
 /java.newcoder.com/.idea
+
 /java.leetcode.com/.DS_Store
+/java.leetcode.com/.idea
+/java.leetcode.com/out
+/java.leetcode.com/InterviewLeetCode.iml
