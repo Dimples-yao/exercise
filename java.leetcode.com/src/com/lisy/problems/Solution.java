@@ -44,4 +44,35 @@ public class Solution {
         return a%b == 0 ? b : GetGCD(b,a%b);
     }
 
+    /**
+     * 最大交换：https://leetcode-cn.com/problems/maximum-swap/
+     * @param num
+     * @return int
+     */
+    public int maximumSwap(int num) {
+        char[] numchars = String.valueOf(num).toCharArray();
+        for (int i = 0; i < numchars.length; i++) {
+            int[] maxTag = getMaxNum(numchars,i);
+            if (maxTag[0] != i && maxTag[1] != Integer.valueOf(numchars[i])){
+                char tem = numchars[i];
+                numchars[i] = (char) maxTag[1];
+                numchars[maxTag[0]] = tem;
+                return Integer.valueOf(String.valueOf(numchars));
+            }
+        }
+        return num;
+    }
+    private int[] getMaxNum(char[] numschar,int i){
+        int[] maxTag = new int[2];
+        maxTag[0] = i;
+        maxTag[1] = numschar[i];
+        for (int j = i; j < numschar.length; j++) {
+            if (maxTag[1]<=numschar[j]){
+                maxTag[1] = Integer.valueOf(numschar[j]);
+                maxTag[0] = j;
+            }
+        }
+        return maxTag;
+    }
+
 }

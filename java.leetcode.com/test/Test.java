@@ -11,7 +11,8 @@ import com.lisy.problems.Solution;
 public class Test {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        int[] intArray = {1,1,2,3};
-        System.out.println(solution.hasGroupsSizeX(intArray));
+        /*int[] intArray = {1,1,2,3};
+        System.out.println(solution.hasGroupsSizeX(intArray));*/
+        System.out.println(solution.maximumSwap(1993));
     }
 }
