@@ -17,18 +17,31 @@ public class Solution {
      * @return boolean
      */
     public boolean hasGroupsSizeX(int[] deck) {
-        if (deck.length<2)
-            return false;
         HashMap<Integer,Integer> map = new HashMap<>();
         for (int i : deck) {
             map.put(i,map.getOrDefault(i,0)+1);
         }
-        int tem = deck[0];
-        for (int i: map.keySet()) {
-            if (map.get(i) != map.get(tem))
+        int val = -1;
+        boolean isFirst = true;
+        for(int key:map.keySet()){
+            if (isFirst){
+                val = map.get(key);
+                isFirst = false;
+            }else {
+                val = GetGCD(val, map.get(key));
+            }
+            if (val <= 1)
                 return false;
         }
         return true;
+    }
+    private int GetGCD(int a,int b){
+        if (a<b){
+            int tem = b;
+            b = a;
+            a = tem;
+        }
+        return a%b == 0 ? b : GetGCD(b,a%b);
     }
 
 }
