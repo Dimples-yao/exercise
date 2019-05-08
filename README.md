@@ -1,6 +1,3 @@
-# Newcoder
-> 刷题
-
 ### java.leetcode.com
 
 > leetcode中关于Java的刷题题解
