@@ -1,9 +1,20 @@
 # Newcoder
 > 刷题
 
-### Solution    [在线编程->剑指offer](https://www.nowcoder.com/ta/coding-interviews )
-### WrittenTest 笔试题
-### ThinkingInJava Java编程思想第四版,测试代码
-### yiibai 易佰教程中学习代码
+### java.leetcode.com
 
-brance
+> leetcode中关于Java的刷题题解
+
+### java.newcoder.com
+
+> 牛客中关于Java的刷题题解
+
+### java.written.com
+
+> 面试笔试时，编写的答案，使用Java语言
+
+### php.leetcode.com
+
+> 在LeetCode中用PHP刷题的答案，意图是用于熟悉PHP语法，后发现PHP并不适合用于刷题。所以目前已停更
+
+
