@@ -13,6 +13,7 @@ public class Test {
         Solution solution = new Solution();
         /*int[] intArray = {1,1,2,3};
         System.out.println(solution.hasGroupsSizeX(intArray));*/
-        System.out.println(solution.maximumSwap(1993));
+        int[] params = {5, 0, 3, 6, 8};
+        System.out.println(solution.partitionDisjoint(params));
     }
 }
