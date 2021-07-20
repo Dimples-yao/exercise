@@ -3,10 +3,10 @@
 /php.leetcode.com/.idea
 /php.leetcode.com/.DS_Store
 
-/java.newcoder.com/out
-/java.newcoder.com/.idea
+/src/java.newcoder.com/out
+/src/java.newcoder.com/.idea
 
-/java.leetcode.com/.DS_Store
-/java.leetcode.com/.idea
-/java.leetcode.com/target
-/java.leetcode.com/InterviewLeetCode.iml
+/src/java.leetcode.com/.DS_Store
+/src/java.leetcode.com/.idea
+/src/java.leetcode.com/target
+/src/java.leetcode.com/InterviewLeetCode.iml
