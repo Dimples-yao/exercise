@@ -1,12 +1,4 @@
 .DS_Store
 
-/php.leetcode.com/.idea
-/php.leetcode.com/.DS_Store
-
-/src/java.newcoder.com/out
-/src/java.newcoder.com/.idea
-
-/src/java.leetcode.com/.DS_Store
-/src/java.leetcode.com/.idea
-/src/java.leetcode.com/target
-/src/java.leetcode.com/InterviewLeetCode.iml
+/.idea/
+/target/
